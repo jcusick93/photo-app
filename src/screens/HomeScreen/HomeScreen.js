@@ -47,6 +47,11 @@ const flatListData = [
 export const HomeScreen = () => {
   const navigation = useNavigation();
   const [searchValue, setSearchValue] = useState("");
+  const handleCarouselPress = (item, navigation) => {
+    navigation.navigate(ScreenNames.PhotographerProfile, {
+      home: item,
+    });
+  };
 
   return (
     <SafeAreaView
@@ -108,7 +113,9 @@ export const HomeScreen = () => {
       >
         {PortfolioData.map((item) => (
           <LandingCard
-            carouselProps={{ items: item.images }}
+            carouselProps={{
+              items: item.images,
+            }}
             onPress={() =>
               navigation.navigate(ScreenNames.PhotographerProfile, {
                 home: item,

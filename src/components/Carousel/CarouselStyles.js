@@ -14,8 +14,7 @@ export const styles = StyleSheet.create({
     gap: 8,
   },
   dot: {
-    width: 4,
-    height: 4,
+    height: 8,
     borderRadius: tokens.themeBorderRadiusFull,
     backgroundColor: tokens.themeColorForegroundNeutralHigh,
   },

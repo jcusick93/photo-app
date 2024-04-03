@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     paddingRight: tokens.themeAppMargin,
     paddingTop: tokens.themeSpace300,
     gap: tokens.themeSpace300,
-    paddingBottom: tokens.themeSpace300,
+    paddingBottom: tokens.themeSpace400,
   },
   headerBeforeSlot: {},
   headerAfterSlot: {},

@@ -27,7 +27,7 @@ export const LandingCard: React.FC<LandingCardProps> = ({
 }) => {
   return (
     <View>
-      <Carousel {...carouselProps} />
+      <Carousel {...carouselProps} onPress={onPress} />
       <TouchableOpacity style={styles.landingCardFooter} onPress={onPress}>
         <Avatar size="medium" src={avatarSrc} />
         <View style={styles.footerTextStack}>
