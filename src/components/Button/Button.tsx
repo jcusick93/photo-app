@@ -1,102 +1,75 @@
 import * as React from "react";
-import {
-  TouchableWithoutFeedback,
-  View,
-  StyleSheet,
-  Animated,
-  TouchableOpacity,
-} from "react-native";
-import { tokens } from "../../tokens/tokens";
-import { Text } from "../Text/Text";
+import { TouchableOpacity, TouchableOpacityProps, View } from "react-native";
+import { Text } from "../Text";
+import { styles } from "./ButtonStyles";
 
-export interface ButtonProps {
-  children?: React.ReactNode;
+export interface ButtonProps extends TouchableOpacityProps {
+  variant?: "filled" | "text";
+  color?: "primary" | "secondary";
   before?: React.ReactNode;
   after?: React.ReactNode;
-  color?: "primary" | "secondary";
-  disabled?: boolean;
-  variant?: "filled" | "text";
+  children?: React.ReactNode;
+  fullWidth?: boolean;
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  children,
+  variant = "filled",
+  color = "secondary",
   before,
   after,
-  variant = "filled",
-  disabled = false,
-  color = "secondary",
+  children,
+  fullWidth,
+  ...props
 }) => {
-  const scaleAnim = React.useRef(new Animated.Value(1)).current;
-
-  const handlePressIn = () => {
-    Animated.timing(scaleAnim, {
-      toValue: 0.9,
-      duration: 100,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  const handlePressOut = () => {
-    Animated.timing(scaleAnim, {
-      toValue: 1,
-      duration: 100,
-      useNativeDriver: true,
-    }).start();
-  };
-
+  let colorVariantStyles = {};
+  switch (color) {
+    case "primary":
+      switch (variant) {
+        case "filled":
+          colorVariantStyles = styles.buttonColorPrimaryVariantFilled;
+          break; // Don't forget to add break statement here
+        default:
+          // Handle other primary variants if needed
+          break;
+      }
+      break; // Don't forget to add break statement here
+    case "secondary":
+      switch (variant) {
+        case "filled":
+          colorVariantStyles = styles.buttonColorSecondaryVariantFilled;
+          break; // Don't forget to add break statement here
+        default:
+          // Handle other secondary variants if needed
+          break;
+      }
+      break; // Don't forget to add break statement here
+    default:
+      // Handle other colors if needed
+      break;
+  }
   return (
     <TouchableOpacity
-      onPressIn={handlePressIn}
-      onPressOut={handlePressOut}
-      disabled={disabled}
+      {...props}
+      style={[styles.buttonBase, colorVariantStyles, fullWidth && { flex: 1 }]}
     >
-      <Animated.View
-        style={[
-          styles.buttonContainer,
-          {
-            transform: [{ scale: scaleAnim }],
-          },
-        ]}
+      {before && <View>{before}</View>}
+
+      <Text
+        style={{ textAlign: "center" }}
+        size="small"
+        weight={500}
+        color={
+          color === "primary" && variant === "filled"
+            ? "onPrimary"
+            : color === "primary" && variant === "text"
+            ? "primary"
+            : "neutralHigh"
+        }
       >
-        <View
-          style={[
-            styles.buttonBase,
-            color === "primary"
-              ? styles.buttonColorPrimary
-              : styles.buttonColorSecondary,
-          ]}
-        >
-          {before ? <View>{before}</View> : null}
-          <Text size="medium" color="neutralHigh" weight={700}>
-            {children}
-          </Text>
-          {after ? <View>{after}</View> : null}
-        </View>
-      </Animated.View>
+        {children}
+      </Text>
+
+      {after && <View>{after}</View>}
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  buttonBase: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 4,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    minHeight: 40,
-  },
-
-  buttonColorPrimary: {
-    backgroundColor: tokens.themeColorBackgroundPrimary,
-  },
-
-  buttonColorSecondary: {
-    backgroundColor: tokens.themeColorBackgroundSecondary,
-  },
-});

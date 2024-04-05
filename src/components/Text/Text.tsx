@@ -7,7 +7,12 @@ import {
 import { styles } from "./TextStyles";
 
 export interface TextProps extends NativeTextProps {
-  color?: "neutralHigh" | "neutralMedium" | "neutralLow" | "primary";
+  color?:
+    | "neutralHigh"
+    | "neutralMedium"
+    | "neutralLow"
+    | "primary"
+    | "onPrimary";
   weight?: 400 | 500 | 700;
   size?: "xSmall" | "small" | "medium" | "large";
 }
@@ -38,6 +43,8 @@ export const Text: React.FC<TextProps> = ({
     case "neutralLow":
       colorStyle = styles.textColorNeutralLow;
       break;
+    case "onPrimary":
+      colorStyle = styles.textColorOnPrimary;
   }
 
   switch (size) {

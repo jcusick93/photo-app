@@ -101,6 +101,7 @@ export const HomeScreen = () => {
       </Header>
 
       <ScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingTop: tokens.themeAppScreenMarginTop,
           paddingBottom: tokens.themeAppScreenMarginBottom,

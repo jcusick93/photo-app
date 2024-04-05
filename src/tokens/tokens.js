@@ -1,5 +1,3 @@
-import { globalVariables } from "./globals";
-
 export const tokens = {
   // background tokens
   themeColorBackgroundPrimary: "#433712",
@@ -11,11 +9,11 @@ export const tokens = {
 
   // foreground tokens
   themeColorForegroundPrimary: "#FFE088",
+  themeColorForegroundOnPrimary: "#FFFFFF",
   themeColorForegroundNeutralHigh: "rgba(255,255,255,1)",
   themeColorForegroundNeutralMedium: "rgba(255,255,255,.7)",
   themeColorForegroundNeutralLow: "rgba(255,255,255,.5)",
   themeColorForegroundNeutralLowest: "rgba(255,255,255,.1)",
-  themeColorForegroundPositive: "#C8ECC9",
 
   // outline tokens
   themeColorOutlineNeutralLow: "rgba(255,255,255,.1)",

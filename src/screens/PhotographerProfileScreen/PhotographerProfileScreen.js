@@ -1,6 +1,5 @@
 import * as React from "react";
 import {
-  ScrollView,
   View,
   TouchableOpacity,
   Image,
@@ -14,6 +13,7 @@ import {
   Header,
   IconButton,
   Footer,
+  Button,
 } from "../../components";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScreenNames } from "../../constants/ScreenNames";
@@ -139,38 +139,24 @@ export const PhotographerProfileScreen = () => {
         </View>
       </Animated.ScrollView>
       <Footer>
-        <TouchableOpacity
+        <Button
+          color="secondary"
+          fullWidth
           onPress={() =>
             navigation.navigate(ScreenNames.Message, {
               photographer: photographerName,
             })
           }
-          style={{
-            height: 44,
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: tokens.themeBorderRadiusMedium,
-            width: "100%",
-            flex: 1,
-            backgroundColor: tokens.themeColorBackgroundSecondary,
-          }}
         >
-          <Text size="small">Send message</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
+          Send message
+        </Button>
+        <Button
+          color="primary"
+          fullWidth
           onPress={() => navigation.navigate(ScreenNames.HomeSettingsModal)}
-          style={{
-            height: 44,
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: tokens.themeBorderRadiusMedium,
-            width: "100%",
-            flex: 1,
-            backgroundColor: tokens.themeColorBackgroundPrimary,
-          }}
         >
-          <Text size="small">Book now</Text>
-        </TouchableOpacity>
+          Book now
+        </Button>
       </Footer>
     </SafeAreaView>
   );

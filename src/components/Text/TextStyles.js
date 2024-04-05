@@ -16,6 +16,9 @@ export const styles = StyleSheet.create({
   textColorNeutralLow: {
     color: tokens.themeColorForegroundNeutralLow,
   },
+  textColorOnPrimary: {
+    color: tokens.themeColorForegroundOnPrimary,
+  },
   // size styles
   textSizeXSmall: {
     fontSize: 12,

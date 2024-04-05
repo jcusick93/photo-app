@@ -126,9 +126,9 @@ const Dots = ({ items, scrollX, width, spacing }) => {
           extrapolate: "clamp",
           easing: Easing.ease,
         });
-        const width = dotPosition.interpolate({
+        const height = dotPosition.interpolate({
           inputRange: [index - 1, index, index + 1],
-          outputRange: [8, 16, 8],
+          outputRange: [8, 12, 8],
           extrapolate: "clamp",
           easing: Easing.ease,
         });
@@ -136,7 +136,7 @@ const Dots = ({ items, scrollX, width, spacing }) => {
         return (
           <Animated.View
             key={index}
-            style={[styles.dot, { width: width, opacity: opacity }]}
+            style={[styles.dot, { height: height, opacity: opacity }]}
           ></Animated.View>
         );
       })}

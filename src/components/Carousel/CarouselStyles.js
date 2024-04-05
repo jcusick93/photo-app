@@ -7,14 +7,16 @@ export const styles = StyleSheet.create({
     paddingRight: tokens.themeAppMargin,
   },
   dotContainer: {
+    minHeight: 32,
     flexDirection: "row",
     justifyContent: "center",
+    alignItems: "center",
     paddingTop: 12,
     paddingBottom: 8,
     gap: 8,
   },
   dot: {
-    height: 8,
+    width: 2,
     borderRadius: tokens.themeBorderRadiusFull,
     backgroundColor: tokens.themeColorForegroundNeutralHigh,
   },
