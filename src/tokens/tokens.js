@@ -16,6 +16,7 @@ export const tokens = {
   themeColorForegroundNeutralLowest: "rgba(255,255,255,.1)",
 
   // outline tokens
+  themeColorOutlineNeutralHigh: "rgba(255,255,255,1)",
   themeColorOutlineNeutralLow: "rgba(255,255,255,.1)",
 
   // shape tokens

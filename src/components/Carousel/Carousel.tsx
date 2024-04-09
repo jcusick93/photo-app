@@ -5,8 +5,6 @@ import {
   Dimensions,
   Animated,
   Easing,
-  Touchable,
-  TouchableOpacity,
   Pressable,
 } from "react-native";
 import { tokens } from "../../tokens/tokens";

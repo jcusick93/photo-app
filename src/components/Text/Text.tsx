@@ -15,6 +15,7 @@ export interface TextProps extends NativeTextProps {
     | "onPrimary";
   weight?: 400 | 500 | 700;
   size?: "xSmall" | "small" | "medium" | "large";
+  style?: TextStyle;
 }
 
 export const Text: React.FC<TextProps> = ({
