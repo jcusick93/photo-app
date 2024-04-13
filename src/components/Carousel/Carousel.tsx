@@ -9,6 +9,8 @@ import {
 } from "react-native";
 import { tokens } from "../../tokens/tokens";
 import { styles } from "./CarouselStyles";
+import { useState } from "react";
+import { Skeleton } from "../Skeleton";
 
 export interface CarouselProps {
   items: { uri: string }[];
@@ -16,6 +18,7 @@ export interface CarouselProps {
 }
 
 export const Carousel: React.FC<CarouselProps> = ({ items, onPress }) => {
+  const [loading, setLoading] = useState(false);
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const spacing = 16;
   const width = Dimensions.get("window").width - tokens.themeAppMargin * 2;
@@ -90,11 +93,30 @@ export const Carousel: React.FC<CarouselProps> = ({ items, onPress }) => {
               }}
             >
               <Pressable
+                style={{
+                  height: 360,
+                  width: width,
+                  borderRadius: tokens.themeBorderRadiusMedium,
+                  overflow: "hidden",
+                }}
                 onPress={() => onPress(item)}
                 onPressIn={handlePressIn}
                 onPressOut={handlePressOut}
               >
+                {loading && (
+                  <Skeleton
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                    }}
+                  />
+                )}
                 <Image
+                  onLoadStart={() => setLoading(true)}
+                  onLoadEnd={() => setLoading(false)}
                   source={{ uri: item.uri }}
                   style={{
                     height: 360,

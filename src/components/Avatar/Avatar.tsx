@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
   ViewStyle,
+  ImageProps,
 } from "react-native";
 import { styles } from "./AvatarStyles";
 
@@ -13,6 +14,7 @@ export interface AvatarProps extends TouchableOpacityProps {
   src?: any;
   initials?: string;
   style?: ViewStyle;
+  imageProps?: ImageProps;
 }
 
 export const Avatar: React.FC<AvatarProps> = ({
@@ -21,6 +23,7 @@ export const Avatar: React.FC<AvatarProps> = ({
   initials,
   onPress,
   style,
+  imageProps,
   ...props
 }) => {
   let sizeStyles = {};
@@ -50,7 +53,11 @@ export const Avatar: React.FC<AvatarProps> = ({
       onPress={onPress} // Pass onPress if provided
       {...(onPress ? props : {})} // Conditionally spread props only if TouchableOpacity is used
     >
-      <Image source={src} style={{ height: "100%", width: "100%" }} />
+      <Image
+        source={src}
+        style={{ height: "100%", width: "100%" }}
+        {...imageProps}
+      />
     </AvatarComponent>
   );
 };

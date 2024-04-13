@@ -12,3 +12,4 @@ export * from "./MicrophoneFilled24";
 export * from "./XCircleFilled24";
 export * from "./XOutlined24";
 export * from "./SealCheckFilled16";
+export * from "./SealCheckFilled24";

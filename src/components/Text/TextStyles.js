@@ -22,19 +22,19 @@ export const styles = StyleSheet.create({
   // size styles
   textSizeXSmall: {
     fontSize: 12,
-    lineHeight: 16,
+    lineHeight: 1.2 * 12,
   },
   textSizeSmall: {
     fontSize: 14,
-    lineHeight: 18,
+    lineHeight: 1.2 * 14,
   },
   textSizeMedium: {
     fontSize: 16,
-    lineHeight: 20,
+    lineHeight: 1.2 * 16,
   },
   textSizeLarge: {
     fontSize: 20,
-    lineHeight: 24,
+    lineHeight: 1.2 * 20,
   },
 
   // weight styles

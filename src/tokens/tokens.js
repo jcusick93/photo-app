@@ -6,6 +6,7 @@ export const tokens = {
   themeColorBackgroundOverlay: "#141414",
   themeColorBackgroundInfo: "#122943",
   themeColorBackgroundNegative: "#431212",
+  themeColorLoading: "#212121",
 
   // foreground tokens
   themeColorForegroundPrimary: "#FFE088",

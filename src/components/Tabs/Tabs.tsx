@@ -6,6 +6,7 @@ import {
   Animated,
   ViewStyle,
   Dimensions,
+  ScrollView,
 } from "react-native";
 import { Text } from "../Text";
 import { styles } from "./TabStyles";
@@ -41,14 +42,10 @@ export const TabBar: React.FC<TabBarProps> = ({
     <View style={styles.tabBar}>
       {children}
       <Animated.View
-        style={{
-          position: "absolute",
-          height: 2,
-          width: indicatorWidth,
-          bottom: 0,
-          left: indicatorPos,
-          backgroundColor: tokens.themeColorOutlineNeutralHigh,
-        }}
+        style={[
+          styles.tabBarIndicator,
+          { left: indicatorPos, width: indicatorWidth },
+        ]}
       />
     </View>
   );
@@ -87,7 +84,7 @@ export const Tabs: React.FC<TabsProps> = ({ items, style }) => {
     Animated.timing(indicatorPos, {
       toValue:
         buttonWidth * items.findIndex((item) => item.label === currentTabValue),
-      duration: 200, // Animation duration in milliseconds
+      duration: 180, // Animation duration in milliseconds
       useNativeDriver: false, // Necessary for positioning changes to be visible
     }).start();
   }, [currentTabValue, items, indicatorPos]);
@@ -96,7 +93,7 @@ export const Tabs: React.FC<TabsProps> = ({ items, style }) => {
     setCurrentTabValue(value);
   }, []);
   return (
-    <View style={style}>
+    <View style={[styles.tabs, style]}>
       <TabBar indicatorPos={indicatorPos} indicatorWidth={buttonWidth}>
         {items.map((item, index) => (
           <TabButton
@@ -109,14 +106,15 @@ export const Tabs: React.FC<TabsProps> = ({ items, style }) => {
           </TabButton>
         ))}
       </TabBar>
+
       {/* content */}
-      <View style={styles.tabContentContainer}>
+      <ScrollView style={styles.tabContentContainer}>
         {items.map((item, index) => (
-          <View key={index}>
+          <ScrollView key={index} style={{ flex: 1 }}>
             {item.label === currentTabValue && item.content}
-          </View>
+          </ScrollView>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };

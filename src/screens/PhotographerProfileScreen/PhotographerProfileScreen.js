@@ -19,6 +19,9 @@ import {
   TabButton,
   TabPanel,
   SealCheckFilled16,
+  SealCheckFilled24,
+  MasonryGrid,
+  Skeleton,
 } from "../../components";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScreenNames } from "../../constants/ScreenNames";
@@ -35,25 +38,32 @@ export const PhotographerProfileScreen = () => {
   // constant to access the params from home
   const home = route.params?.home;
 
-  // Extract photographer name from the route params
-  const photographerName =
-    conversation?.sender?.name ||
-    home?.owner?.name ||
-    route.params?.photographer;
+  // Inits the hero loading state
+  const [heroLoading, setHeroLoading] = useState(false);
 
-  const coverImage =
-    conversation?.sender?.coverURI ||
-    home?.owner?.coverURI ||
-    route.params?.photographer?.coverImage;
+  // Inits the avatar loading state
+  const [avatarLoading, setAvatarLoading] = useState(false);
+
+  // Extract photographer name from the route params
+  const photographerName = conversation?.sender?.name || home?.owner?.name;
+
+  // Check if is verified
+  const verified = conversation?.sender?.verified || home?.owner?.verified;
+
+  // Get the cover image
+  const coverImage = conversation?.sender?.coverURI || home?.owner?.coverURI;
 
   // Find the portfolio data for the photographer
   const portfolio = PortfolioData.find(
     (item) => item.owner.name === photographerName
   );
 
+  // Get the location
   const location = conversation?.sender?.location || home?.owner?.location;
+
   // get the avatar image
   const avatarSrc = conversation?.sender?.uri || home?.owner?.uri || "";
+
   // get the rating
   const rating = conversation?.sender?.rating || home?.owner?.rating || "";
 
@@ -74,25 +84,8 @@ export const PhotographerProfileScreen = () => {
 
   const tabData = [
     {
-      label: "Recents",
-      content: (
-        <View
-          style={{
-            gap: 1,
-            width: "100%",
-            flexDirection: "column",
-          }}
-        >
-          {portfolio &&
-            portfolio.images.map((item, index) => (
-              <Image
-                key={index}
-                source={{ uri: item.uri }}
-                style={{ height: 320, width: "100%" }}
-              />
-            ))}
-        </View>
-      ),
+      label: "Top shots",
+      content: <MasonryGrid images={portfolio.images} />,
     },
     {
       label: "Reviews",
@@ -118,8 +111,9 @@ export const PhotographerProfileScreen = () => {
             <Text color="neutralHigh" size="small" weight={500}>
               {photographerName}
             </Text>
-
-            <SealCheckFilled16 color={tokens.themeColorForegroundPrimary} />
+            {verified && (
+              <SealCheckFilled16 color={tokens.themeColorForegroundPrimary} />
+            )}
           </Animated.View>
         }
         after={<View style={{ height: 24, width: 24 }} />}
@@ -135,8 +129,11 @@ export const PhotographerProfileScreen = () => {
           </IconButton>
         }
       />
-
+      {/* animated scroll view so that the header knows when to animate */}
       <Animated.ScrollView
+        contentContainerStyle={{
+          paddingBottom: tokens.themeAppScreenMarginBottom,
+        }}
         showsVerticalScrollIndicator={false}
         onScroll={Animated.event(
           [
@@ -151,23 +148,39 @@ export const PhotographerProfileScreen = () => {
           { useNativeDriver: true }
         )}
       >
+        {/* Hero lockup */}
         <View
           style={{
+            width: "100%",
             paddingLeft: tokens.themeAppMargin,
             paddingRight: tokens.themeAppMargin,
             paddingTop: tokens.themeAppScreenMarginTop,
-            paddingBottom: tokens.themeAppScreenMarginBottom,
+            paddingBottom: tokens.themeSpace300,
           }}
         >
           <View
             style={{
               position: "relative",
               height: imageHeight,
-
               width: "100%",
             }}
           >
+            {heroLoading && (
+              <Skeleton
+                style={{
+                  flexGrow: 1,
+                  borderRadius: tokens.themeBorderRadiusMedium,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                }}
+              />
+            )}
             <Image
+              onLoadStart={() => setHeroLoading(true)}
+              onLoadEnd={() => setHeroLoading(false)}
               style={{
                 borderRadius: tokens.themeBorderRadiusMedium,
                 width: "100%",
@@ -177,6 +190,7 @@ export const PhotographerProfileScreen = () => {
                 uri: coverImage,
               }}
             />
+
             <View
               style={{
                 position: "absolute",
@@ -187,16 +201,36 @@ export const PhotographerProfileScreen = () => {
                 alignItems: "center",
               }}
             >
-              <Avatar
-                src={{ uri: avatarSrc }}
-                size="xLarge"
+              <View
                 style={{
-                  // centers the avatar on the bottom line, half the width
-
+                  overflow: "hidden",
+                  height: 72,
+                  width: 72,
+                  borderRadius: tokens.themeBorderRadiusFull,
                   borderWidth: 2,
                   borderColor: tokens.themeColorBackgroundBaseline,
+                  backgroundColor: tokens.themeColorBackgroundBaseline,
                 }}
-              />
+              >
+                <Skeleton
+                  style={{
+                    borderRadius: tokens.themeBorderRadiusFull,
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                  }}
+                />
+                <Avatar
+                  imageProps={{
+                    onLoadStart: () => setAvatarLoading(true),
+                    onLoadEnd: () => setAvatarLoading(false),
+                  }}
+                  src={{ uri: avatarSrc }}
+                  size="xLarge"
+                />
+              </View>
             </View>
           </View>
 
@@ -208,9 +242,22 @@ export const PhotographerProfileScreen = () => {
               alignItems: "center",
             }}
           >
-            <Text size="large" weight={500} style={{ textAlign: "center" }}>
-              {photographerName}
-            </Text>
+            <View
+              style={{
+                gap: 4,
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text size="large" weight={500} style={{ textAlign: "center" }}>
+                {photographerName}
+              </Text>
+              {verified && (
+                <SealCheckFilled24 color={tokens.themeColorForegroundPrimary} />
+              )}
+            </View>
+
             <Text size="xSmall" color="neutralLow">
               {location}
             </Text>
@@ -220,10 +267,7 @@ export const PhotographerProfileScreen = () => {
           </View>
         </View>
 
-        <Tabs
-          items={tabData}
-          style={{ paddingBottom: tokens.themeAppScreenMarginBottom }}
-        />
+        <Tabs items={tabData} />
       </Animated.ScrollView>
       <Footer>
         <Button
