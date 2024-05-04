@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Animated, ViewStyle } from "react-native";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 import { styles } from "./HeaderStyles";
 import { Text } from "../Text";
 import { SealCheckFilled16 } from "../Icons/SealCheckFilled16";

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, ViewProps, ViewStyle } from "react-native";
 import { styles } from "./FooterStyles";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 
 export interface FooterProps extends ViewProps {
   children?: React.ReactNode;

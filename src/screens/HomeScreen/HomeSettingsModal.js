@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View } from "react-native";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 import { IconButton, Text } from "../../components";
 import { useNavigation } from "@react-navigation/core";
 import { XOutlined24 } from "../../components";

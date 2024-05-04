@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { tokens } from "./src/tokens/tokens";
+import { tokens } from "./src/styles/tokens";
 import * as Haptics from "expo-haptics";
 import {
   HomeScreen,

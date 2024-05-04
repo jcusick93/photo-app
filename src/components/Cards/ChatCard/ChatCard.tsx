@@ -2,7 +2,7 @@ import * as React from "react";
 import { TouchableOpacity, TouchableHighlight, View } from "react-native";
 import { Avatar } from "../../Avatar";
 import { Text } from "../../Text";
-import { tokens } from "../../../tokens/tokens";
+import { tokens } from "../../../styles/tokens";
 
 export interface ChatCardProps {
   avatarSrc?: string;

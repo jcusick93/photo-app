@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, ViewStyle } from "react-native";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 import { ViewProps } from "react-native-svg/lib/typescript/fabric/utils";
 
 export interface SkeletonProps extends ViewProps {

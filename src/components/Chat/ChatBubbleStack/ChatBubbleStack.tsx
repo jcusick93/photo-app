@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View } from "react-native";
-import { tokens } from "../../../tokens/tokens";
+import { tokens } from "../../../styles/tokens";
 
 export interface ChatBubbleProps {
   children?: React.ReactNode;

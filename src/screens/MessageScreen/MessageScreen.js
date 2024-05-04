@@ -17,7 +17,7 @@ import {
   PaperPlaneTiltFilled24,
   TextField,
 } from "../../components";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScreenNames } from "../../constants/ScreenNames";
 import { ChatData } from "../../constants/ChatData";

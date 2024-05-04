@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Image, ImageProps } from "react-native";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 
 export interface MasonryGridProps {
   images: { uri: string }[];

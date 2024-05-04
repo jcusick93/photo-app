@@ -22,7 +22,7 @@ import {
 import { useNavigation } from "@react-navigation/core";
 import { ScreenNames } from "../../constants/ScreenNames";
 import { useState } from "react";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 import { Photographers, PortfolioData } from "../../constants";
 import { useRef } from "react";
 

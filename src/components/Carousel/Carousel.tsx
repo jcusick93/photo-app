@@ -7,7 +7,7 @@ import {
   Easing,
   Pressable,
 } from "react-native";
-import { tokens } from "../../tokens/tokens";
+import { tokens, globalStyles } from "../../styles";
 import { styles } from "./CarouselStyles";
 import { useState } from "react";
 import { Skeleton } from "../Skeleton";
@@ -21,7 +21,8 @@ export const Carousel: React.FC<CarouselProps> = ({ items, onPress }) => {
   const [loading, setLoading] = useState(false);
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const spacing = 16;
-  const width = Dimensions.get("window").width - tokens.themeAppMargin * 2;
+  const width =
+    Dimensions.get("window").width - globalStyles.appMarginHorizontal * 2;
   const scaleAnim = React.useRef(new Animated.Value(1)).current;
 
   const handlePressIn = () => {
@@ -96,7 +97,7 @@ export const Carousel: React.FC<CarouselProps> = ({ items, onPress }) => {
                 style={{
                   height: 360,
                   width: width,
-                  borderRadius: tokens.themeBorderRadiusMedium,
+                  borderRadius: globalStyles.borderRadiusMedium,
                   overflow: "hidden",
                 }}
                 onPress={() => onPress(item)}
@@ -121,7 +122,7 @@ export const Carousel: React.FC<CarouselProps> = ({ items, onPress }) => {
                   style={{
                     height: 360,
                     width: width,
-                    borderRadius: tokens.themeBorderRadiusLarge,
+                    borderRadius: globalStyles.borderRadiusMedium,
                   }}
                 />
               </Pressable>

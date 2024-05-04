@@ -1,6 +1,6 @@
 import * as React from "react";
 import { View, Image } from "react-native";
-import { tokens } from "../../../tokens/tokens";
+import { tokens } from "../../../styles/tokens";
 import { Text } from "../../Text";
 import { Avatar } from "../../Avatar";
 

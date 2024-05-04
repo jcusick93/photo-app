@@ -25,7 +25,7 @@ import {
 } from "../../components";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScreenNames } from "../../constants/ScreenNames";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 import { PortfolioData, Photographers } from "../../constants/";
 import { useState, useEffect, useRef, useCallback } from "react";
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View } from "react-native";
 import { styles } from "./IconWrapperStyles";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 
 export interface IconWrapperProps {
   children?: React.ReactNode;

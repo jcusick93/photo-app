@@ -1,6 +1,6 @@
 import * as React from "react";
 import { TextInput, TextInputProps, View } from "react-native";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles";
 
 export interface TextFieldProps extends TextInputProps {
   shape?: "rounded" | "circular";

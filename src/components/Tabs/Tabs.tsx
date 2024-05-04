@@ -11,7 +11,7 @@ import {
 import { Text } from "../Text";
 import { styles } from "./TabStyles";
 import { useState, useCallback, useEffect } from "react";
-import { tokens } from "../../tokens/tokens";
+import { tokens } from "../../styles/tokens";
 
 export interface TabsProps {
   value: any;

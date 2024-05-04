@@ -1,10 +1,10 @@
 import { StyleSheet, Dimensions } from "react-native";
-import { tokens } from "../../tokens/tokens";
+import { tokens, globalStyles } from "../../styles";
 
 export const styles = StyleSheet.create({
   carouselBase: {
-    paddingLeft: tokens.themeAppMargin,
-    paddingRight: tokens.themeAppMargin,
+    paddingLeft: globalStyles.appMarginHorizontal,
+    paddingRight: globalStyles.appMarginHorizontal,
   },
   dotContainer: {
     minHeight: 32,
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   },
   dot: {
     width: 2,
-    borderRadius: tokens.themeBorderRadiusFull,
+    borderRadius: globalStyles.borderRadiusFull,
     backgroundColor: tokens.themeColorForegroundNeutralHigh,
   },
 });
