@@ -1,28 +1,30 @@
 import { StyleSheet } from "react-native";
-import { tokens } from "../../styles/tokens";
+import { tokens, globalStyles } from "../../styles";
 
 export const styles = StyleSheet.create({
   buttonBase: {
-    minHeight: 44,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    gap: tokens.themeSpace200,
+    gap: globalStyles.space200,
   },
+
   buttonColorPrimaryVariantFilled: {
+    minHeight: 44,
     backgroundColor: tokens.themeColorBackgroundPrimary,
-    paddingLeft: tokens.themeSpace300,
-    paddingRight: tokens.themeSpace300,
-    paddingTop: tokens.themeSpace200,
-    paddingBottom: tokens.themeSpace200,
-    borderRadius: tokens.themeBorderRadiusSmall,
+    paddingLeft: globalStyles.space300,
+    paddingRight: globalStyles.space300,
+    paddingTop: globalStyles.space200,
+    paddingBottom: globalStyles.space200,
+    borderRadius: globalStyles.borderRadiusSmall,
   },
   buttonColorSecondaryVariantFilled: {
+    minHeight: 44,
     backgroundColor: tokens.themeColorBackgroundSecondary,
-    paddingLeft: tokens.themeSpace300,
-    paddingRight: tokens.themeSpace300,
-    paddingTop: tokens.themeSpace200,
-    paddingBottom: tokens.themeSpace200,
-    borderRadius: tokens.themeBorderRadiusSmall,
+    paddingLeft: globalStyles.space300,
+    paddingRight: globalStyles.space300,
+    paddingTop: globalStyles.space200,
+    paddingBottom: globalStyles.space200,
+    borderRadius: globalStyles.borderRadiusSmall,
   },
 });

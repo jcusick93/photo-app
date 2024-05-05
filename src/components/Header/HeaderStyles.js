@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { tokens } from "../../styles/tokens";
+import { tokens, globalStyles } from "../../styles";
 
 export const styles = StyleSheet.create({
   headerBase: {
@@ -7,16 +7,16 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingLeft: tokens.themeAppMargin,
-    paddingRight: tokens.themeAppMargin,
-    paddingTop: tokens.themeSpace300,
-    gap: tokens.themeSpace300,
-    paddingBottom: tokens.themeSpace400,
+    paddingLeft: globalStyles.appMarginHorizontal,
+    paddingRight: globalStyles.appMarginHorizontal,
+    paddingTop: globalStyles.space300,
+    gap: globalStyles.space300,
+    paddingBottom: globalStyles.space400,
   },
   headerBeforeSlot: {},
   headerAfterSlot: {},
   headerTitleAvatarStack: {
-    gap: 8,
+    gap: globalStyles.space300,
     flexDirection: "row",
     alignItems: "center",
   },

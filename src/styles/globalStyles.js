@@ -1,4 +1,5 @@
 export const globalStyles = {
+  // border radius styles
   borderRadiusXSmall: 4,
   borderRadiusSmall: 8,
   borderRadiusMedium: 12,
@@ -6,7 +7,7 @@ export const globalStyles = {
   borderRadiusXLarge: 24,
   borderRadiusFull: 99,
 
-  // space tokens
+  // space styles
   space100: 2,
   space200: 4,
   space300: 8,
@@ -15,7 +16,10 @@ export const globalStyles = {
   space600: 20,
   space700: 24,
 
-  // layout tokens
+  // typography styles
+  typographyLineHeightDefault: 1.2,
+
+  // layout styles
   appMarginHorizontal: 16,
   appContainerMarginTop: 8,
   appContainerMarginBottom: 16,

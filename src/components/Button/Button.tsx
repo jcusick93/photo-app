@@ -42,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
           // Handle other secondary variants if needed
           break;
       }
-      break; // Don't forget to add break statement here
+      break;
     default:
       // Handle other colors if needed
       break;

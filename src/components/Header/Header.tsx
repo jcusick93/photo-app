@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({
                 title
               )}
               {typeof subtitle === "string" ? (
-                <Text size="xSmall" color="neutralMedium">
+                <Text size="xsmall" color="neutralMedium">
                   {subtitle}
                 </Text>
               ) : (

@@ -1,8 +1,9 @@
 import * as React from "react";
-import { TouchableOpacity, TouchableHighlight, View } from "react-native";
+import { TouchableHighlight, View } from "react-native";
 import { Avatar } from "../../Avatar";
 import { Text } from "../../Text";
-import { tokens } from "../../../styles/tokens";
+import { tokens } from "../../../styles";
+import { styles } from "./ChatCardStyles";
 
 export interface ChatCardProps {
   avatarSrc?: string;
@@ -40,25 +41,16 @@ export const ChatCard: React.FC<ChatCardProps> = ({
       onPress={onPress}
     >
       <View
-        style={{
-          backgroundColor: pressed
-            ? tokens.themeColorBackgroundSecondary
-            : "transparent", // Corrected background color
-          paddingTop: tokens.themeSpace300,
-          paddingLeft: tokens.themeAppMargin,
-          paddingRight: tokens.themeAppMargin,
-          paddingBottom: tokens.themeSpace300,
-
-          width: "100%",
-          overflow: "hidden",
-          flexDirection: "row",
-          gap: tokens.themeSpace300,
-          alignItems: "center",
-        }}
+        style={[
+          styles.chatCardBase,
+          {
+            backgroundColor: pressed
+              ? tokens.themeColorBackgroundSecondary
+              : "transparent",
+          },
+        ]}
       >
         <Avatar src={avatarSrc} size="large" />
-        {/* dot */}
-
         <View style={{ flex: 1, width: "100%", flexGrow: 1 }}>
           <Text
             weight={400}
@@ -80,16 +72,8 @@ export const ChatCard: React.FC<ChatCardProps> = ({
             {time}
           </Text>
         </View>
-        {unread ? (
-          <View
-            style={{
-              borderRadius: tokens.themeBorderRadiusFull,
-              height: 8,
-              width: 8,
-              backgroundColor: tokens.themeColorForegroundNeutralHigh,
-            }}
-          ></View>
-        ) : null}
+        {/* indicator if unread */}
+        {unread && <View style={styles.chatCardDot}></View>}
       </View>
     </TouchableHighlight>
   );

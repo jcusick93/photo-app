@@ -14,7 +14,7 @@ export interface TextProps extends NativeTextProps {
     | "primary"
     | "onPrimary";
   weight?: 400 | 500 | 700;
-  size?: "xSmall" | "small" | "medium" | "large";
+  size?: "xsmall" | "small" | "medium" | "large";
   style?: TextStyle;
 }
 
@@ -49,7 +49,7 @@ export const Text: React.FC<TextProps> = ({
   }
 
   switch (size) {
-    case "xSmall":
+    case "xsmall":
       sizeStyle = styles.textSizeXSmall;
       break;
     case "small":

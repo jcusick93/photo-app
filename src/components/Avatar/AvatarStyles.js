@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import { tokens } from "../../styles/tokens";
+import { tokens, globalStyles } from "../../styles";
 
 export const styles = StyleSheet.create({
   avatarBase: {
-    borderRadius: tokens.themeBorderRadiusFull,
+    borderRadius: globalStyles.borderRadiusFull,
     overflow: "hidden",
   },
   // size styles

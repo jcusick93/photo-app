@@ -6,6 +6,15 @@ export const styles = StyleSheet.create({
     paddingLeft: globalStyles.appMarginHorizontal,
     paddingRight: globalStyles.appMarginHorizontal,
   },
+  carouselImageContainer: {
+    height: 360,
+    borderRadius: globalStyles.borderRadiusMedium,
+    overflow: "hidden",
+  },
+  carouselImage: {
+    height: 360,
+    borderRadius: globalStyles.borderRadiusMedium,
+  },
   dotContainer: {
     minHeight: 32,
     flexDirection: "row",

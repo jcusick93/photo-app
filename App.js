@@ -89,7 +89,7 @@ function Root() {
         tabBarStyle: {
           backgroundColor: tokens.themeColorBackgroundBaseline,
           height: 84,
-          borderTopColor: "rgba(255,255,255, .2)",
+          borderTopColor: tokens.themeColorOutlineNeutralLow,
         },
 
         tabBarIcon: ({ focused, color, size }) => {
@@ -145,7 +145,7 @@ function Root() {
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar style="light-content" />
+      <StatusBar style="auto" />
       <Stack.Navigator>
         <Stack.Screen
           name={ScreenNames.Root}

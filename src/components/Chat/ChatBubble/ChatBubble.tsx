@@ -1,8 +1,9 @@
 import * as React from "react";
-import { View, Image } from "react-native";
-import { tokens } from "../../../styles/tokens";
+import { View } from "react-native";
+import { tokens } from "../../../styles";
 import { Text } from "../../Text";
 import { Avatar } from "../../Avatar";
+import { styles } from "./ChatBubbleStyles";
 
 export interface ChatBubbleProps {
   children?: React.ReactNode;
@@ -24,28 +25,25 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
       }}
     >
       <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 8 }}>
-        {variant == "from" ? <Avatar size="small" src={avatarSrc} /> : null}
+        {/* If from is true, show an avatar */}
+        {variant == "from" && <Avatar size="small" src={avatarSrc} />}
         <View
-          style={{
-            gap: 8,
-            maxWidth: 240,
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-            borderBottomLeftRadius: variant === "to" ? 24 : 0,
-            borderBottomRightRadius: variant === "to" ? 0 : 24,
-            padding: 12,
-
-            backgroundColor:
-              variant === "to"
-                ? tokens.themeColorBackgroundPrimary
-                : tokens.themeColorBackgroundSecondary,
-          }}
+          style={[
+            styles.chatBubbleBase,
+            variant === "to" ? styles.chatBubbleTo : styles.chatBubbleFrom,
+          ]}
         >
-          <Text style={{ color: "white" }} size="small" color="neutralHigh">
+          <Text
+            size="small"
+            color={variant === "to" ? "onPrimary" : "neutralHigh"}
+          >
             {children}
           </Text>
           {time ? (
-            <Text size="xSmall" color="neutralLow">
+            <Text
+              size="xsmall"
+              color={variant === "to" ? "onPrimary" : "neutralHigh"}
+            >
               {time}
             </Text>
           ) : null}

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { TextInput, TextInputProps, View } from "react-native";
-import { tokens } from "../../styles";
+import { tokens, globalStyles } from "../../styles";
+import { styles } from "./TextFieldStyles";
 
 export interface TextFieldProps extends TextInputProps {
   shape?: "rounded" | "circular";
@@ -15,67 +16,24 @@ export const TextField: React.FC<TextFieldProps> = ({
   ...props
 }) => {
   return (
-    <View
-      style={{
-        flex: 1,
-        position: "relative",
-
-        width: "100%",
-      }}
-    >
+    <View style={styles.textFieldBase}>
       <TextInput
         {...props}
-        selectionColor="white"
-        keyboardAppearance="dark"
+        selectionColor={tokens.themeColorForegroundNeutralHigh}
         placeholderTextColor={tokens.themeColorForegroundNeutralMedium}
-        style={{
-          width: "100%",
-          flex: 1,
-          backgroundColor: tokens.themeColorBackgroundSecondary,
-          overflow: "hidden",
-          minHeight: 44,
-          maxHeight: 120,
-          fontSize: 14,
-          lineHeight: 16,
-          paddingTop: 12,
-          paddingBottom: 12,
-          paddingLeft: before ? 44 : 20,
-          paddingRight: after ? 56 : 20,
-          borderRadius: 24,
-          color: "white",
-        }}
+        style={[
+          styles.textFieldInput,
+          { paddingLeft: before ? 44 : 20, paddingRight: after ? 56 : 20 },
+        ]}
       />
-      {before ? (
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            position: "absolute",
-            left: 0,
-            top: 0,
-            height: 44,
-            width: 44,
-          }}
-        >
-          {before}
-        </View>
-      ) : null}
-      {after ? (
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-
-            position: "absolute",
-            right: 0,
-            top: 0,
-            height: 44,
-            width: 44,
-          }}
-        >
-          {after}
-        </View>
-      ) : null}
+      {/* before slot if before is true */}
+      {before && (
+        <View style={[styles.textFieldInputSlot, { left: 0 }]}>{before}</View>
+      )}
+      {/* after slot if after is true */}
+      {after && (
+        <View style={[styles.textFieldInputSlot, { right: 0 }]}>{after}</View>
+      )}
     </View>
   );
 };

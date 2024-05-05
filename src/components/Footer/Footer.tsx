@@ -1,7 +1,7 @@
 import * as React from "react";
 import { View, ViewProps, ViewStyle } from "react-native";
 import { styles } from "./FooterStyles";
-import { tokens } from "../../styles/tokens";
+import { tokens, globalStyles } from "../../styles";
 
 export interface FooterProps extends ViewProps {
   children?: React.ReactNode;
@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({
     <View
       style={[
         styles.footerBase,
-        { gap: gap ? gap : tokens.themeSpace300 },
+        { gap: gap ? gap : globalStyles.space300 },
         { alignItems: alignItems ? alignItems : "center" },
       ]}
     >

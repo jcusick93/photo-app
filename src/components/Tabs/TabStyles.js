@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { tokens } from "../../styles/tokens";
+import { globalStyles, tokens } from "../../styles";
 
 export const styles = StyleSheet.create({
   tabs: {
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     backgroundColor: tokens.themeColorOutlineNeutralHigh,
   },
   tabButton: {
-    padding: 12,
+    padding: globalStyles.space300,
     minHeight: 44,
     justifyContent: "center",
     alignItems: "center",
@@ -36,8 +36,7 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
     width: "100%",
     height: "100%",
-
-    paddingTop: 12,
+    paddingTop: globalStyles.space400,
     paddingLeft: tokens.themeAppMargin,
     paddingRight: tokens.themeAppMargin,
   },

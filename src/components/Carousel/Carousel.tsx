@@ -94,12 +94,7 @@ export const Carousel: React.FC<CarouselProps> = ({ items, onPress }) => {
               }}
             >
               <Pressable
-                style={{
-                  height: 360,
-                  width: width,
-                  borderRadius: globalStyles.borderRadiusMedium,
-                  overflow: "hidden",
-                }}
+                style={[styles.carouselImageContainer, { width: width }]}
                 onPress={() => onPress(item)}
                 onPressIn={handlePressIn}
                 onPressOut={handlePressOut}
@@ -119,11 +114,7 @@ export const Carousel: React.FC<CarouselProps> = ({ items, onPress }) => {
                   onLoadStart={() => setLoading(true)}
                   onLoadEnd={() => setLoading(false)}
                   source={{ uri: item.uri }}
-                  style={{
-                    height: 360,
-                    width: width,
-                    borderRadius: globalStyles.borderRadiusMedium,
-                  }}
+                  style={[styles.carouselImage, { width: width }]}
                 />
               </Pressable>
             </Animated.View>

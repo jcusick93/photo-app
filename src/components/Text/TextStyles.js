@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { tokens } from "../../styles/tokens";
+import { globalStyles, tokens } from "../../styles";
 
 export const styles = StyleSheet.create({
   text: {},
@@ -22,19 +22,19 @@ export const styles = StyleSheet.create({
   // size styles
   textSizeXSmall: {
     fontSize: 12,
-    lineHeight: 1.2 * 12,
+    lineHeight: globalStyles.typographyLineHeightDefault * 12,
   },
   textSizeSmall: {
     fontSize: 14,
-    lineHeight: 1.2 * 14,
+    lineHeight: globalStyles.typographyLineHeightDefault * 14,
   },
   textSizeMedium: {
     fontSize: 16,
-    lineHeight: 1.2 * 16,
+    lineHeight: globalStyles.typographyLineHeightDefault * 16,
   },
   textSizeLarge: {
     fontSize: 20,
-    lineHeight: 1.2 * 20,
+    lineHeight: globalStyles.typographyLineHeightDefault * 20,
   },
 
   // weight styles

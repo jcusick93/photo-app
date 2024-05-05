@@ -23,32 +23,32 @@ type Colors = {
 
 export const lightModeColors: Colors = {
   // background tokens
-  themeColorBackgroundBaseline: "red",
-  themeColorBackgroundBaselineInverse: "red",
+  themeColorBackgroundBaseline: "#F4F5FF",
+  themeColorBackgroundBaselineInverse: "#070915",
   themeColorBackgroundPrimary: "#9D6D01",
   themeColorBackgroundSecondary: "#CBCBCB",
   themeColorBackgroundOverlay: "#FFFFFF",
 
   // foreground tokens
-  themeColorForegroundPrimary: "#FFE088",
+  themeColorForegroundPrimary: "#9D6D01",
   themeColorForegroundOnPrimary: "#FFFFFF",
-  themeColorForegroundNeutralHigh: "rgba(255,255,255,1)",
-  themeColorForegroundNeutralMedium: "rgba(255,255,255,.7)",
-  themeColorForegroundNeutralLow: "rgba(255,255,255,.5)",
-  themeColorForegroundNeutralLowest: "rgba(255,255,255,.1)",
+  themeColorForegroundNeutralHigh: "#222222",
+  themeColorForegroundNeutralMedium: "rgba(34,34,34,.7)",
+  themeColorForegroundNeutralLow: "rgba(34,34,34,.5)",
+  themeColorForegroundNeutralLowest: "rgba(34,34,34,.1)",
 
   // outline tokens
-  themeColorOutlineNeutralHigh: "rgba(255,255,255,1)",
-  themeColorOutlineNeutralLow: "rgba(255,255,255,.1)",
+  themeColorOutlineNeutralHigh: "#222222",
+  themeColorOutlineNeutralLow: "rgba(34,34,34,.1)",
 };
 
 export const darkModeColors: Colors = {
   // background tokens
   themeColorBackgroundBaseline: "#080808",
   themeColorBackgroundBaselineInverse: "#070915",
-  themeColorBackgroundPrimary: "#9D6D01",
+  themeColorBackgroundPrimary: "#433712",
   themeColorBackgroundSecondary: "#242424",
-  themeColorBackgroundOverlay: "#FFFFFF",
+  themeColorBackgroundOverlay: "#141414",
 
   // foreground tokens
   themeColorForegroundPrimary: "#FFE088",

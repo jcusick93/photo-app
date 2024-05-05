@@ -8,6 +8,8 @@ import {
   ImageProps,
 } from "react-native";
 import { styles } from "./AvatarStyles";
+import { Skeleton } from "../Skeleton";
+import { useState } from "react";
 
 export interface AvatarProps extends TouchableOpacityProps {
   size?: "small" | "medium" | "large" | "xLarge";
@@ -47,13 +49,28 @@ export const Avatar: React.FC<AvatarProps> = ({
     ? TouchableOpacity
     : View;
 
+  // Initialize the loading to false
+  const [loading, setLoading] = useState(false);
   return (
     <AvatarComponent
       style={[styles.avatarBase, sizeStyles, style]}
       onPress={onPress} // Pass onPress if provided
       {...(onPress ? props : {})} // Conditionally spread props only if TouchableOpacity is used
     >
+      {loading && (
+        <Skeleton
+          style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+          }}
+        />
+      )}
       <Image
+        onLoadStart={() => setLoading(true)}
+        onLoadEnd={() => setLoading(false)}
         source={src}
         style={{ height: "100%", width: "100%" }}
         {...imageProps}
