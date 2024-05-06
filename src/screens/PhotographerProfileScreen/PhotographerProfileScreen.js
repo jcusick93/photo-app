@@ -1,11 +1,5 @@
 import * as React from "react";
-import {
-  View,
-  TouchableOpacity,
-  Image,
-  SafeAreaView,
-  Animated,
-} from "react-native";
+import { View, Image, SafeAreaView, Animated } from "react-native";
 import {
   Text,
   CaretLeftOutlined24,
@@ -25,7 +19,7 @@ import {
 } from "../../components";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScreenNames } from "../../constants/ScreenNames";
-import { tokens } from "../../styles/tokens";
+import { tokens, globalStyles } from "../../styles";
 import { PortfolioData, Photographers } from "../../constants/";
 import { useState, useEffect, useRef, useCallback } from "react";
 
@@ -132,7 +126,7 @@ export const PhotographerProfileScreen = () => {
       {/* animated scroll view so that the header knows when to animate */}
       <Animated.ScrollView
         contentContainerStyle={{
-          paddingBottom: tokens.themeAppScreenMarginBottom,
+          paddingBottom: globalStyles.appContainerMarginBottom,
         }}
         showsVerticalScrollIndicator={false}
         onScroll={Animated.event(
@@ -152,10 +146,9 @@ export const PhotographerProfileScreen = () => {
         <View
           style={{
             width: "100%",
-            paddingLeft: tokens.themeAppMargin,
-            paddingRight: tokens.themeAppMargin,
-            paddingTop: tokens.themeAppScreenMarginTop,
-            paddingBottom: tokens.themeSpace300,
+            paddingLeft: globalStyles.appMarginHorizontal,
+            paddingRight: globalStyles.appMarginHorizontal,
+            paddingTop: globalStyles.appContainerMarginTop,
           }}
         >
           <View
@@ -169,7 +162,7 @@ export const PhotographerProfileScreen = () => {
               <Skeleton
                 style={{
                   flexGrow: 1,
-                  borderRadius: tokens.themeBorderRadiusMedium,
+                  borderRadius: globalStyles.borderRadiusMedium,
                   position: "absolute",
                   top: 0,
                   left: 0,
@@ -182,7 +175,7 @@ export const PhotographerProfileScreen = () => {
               onLoadStart={() => setHeroLoading(true)}
               onLoadEnd={() => setHeroLoading(false)}
               style={{
-                borderRadius: tokens.themeBorderRadiusMedium,
+                borderRadius: globalStyles.borderRadiusMedium,
                 width: "100%",
                 height: "100%",
               }}
@@ -206,30 +199,13 @@ export const PhotographerProfileScreen = () => {
                   overflow: "hidden",
                   height: 72,
                   width: 72,
-                  borderRadius: tokens.themeBorderRadiusFull,
+                  borderRadius: globalStyles.borderRadiusFull,
                   borderWidth: 2,
                   borderColor: tokens.themeColorBackgroundBaseline,
                   backgroundColor: tokens.themeColorBackgroundBaseline,
                 }}
               >
-                <Skeleton
-                  style={{
-                    borderRadius: tokens.themeBorderRadiusFull,
-                    position: "absolute",
-                    top: 0,
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                  }}
-                />
-                <Avatar
-                  imageProps={{
-                    onLoadStart: () => setAvatarLoading(true),
-                    onLoadEnd: () => setAvatarLoading(false),
-                  }}
-                  src={{ uri: avatarSrc }}
-                  size="xLarge"
-                />
+                <Avatar src={{ uri: avatarSrc }} size="xlarge" />
               </View>
             </View>
           </View>
@@ -258,10 +234,10 @@ export const PhotographerProfileScreen = () => {
               )}
             </View>
 
-            <Text size="xSmall" color="neutralLow">
+            <Text size="xsmall" color="neutralLow">
               {location}
             </Text>
-            <Text size="xSmall" color="neutralLow">
+            <Text size="xsmall" color="neutralLow">
               {rating} stars
             </Text>
           </View>

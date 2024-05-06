@@ -12,7 +12,7 @@ import { Skeleton } from "../Skeleton";
 import { useState } from "react";
 
 export interface AvatarProps extends TouchableOpacityProps {
-  size?: "small" | "medium" | "large" | "xLarge";
+  size?: "small" | "medium" | "large" | "xlarge";
   src?: any;
   initials?: string;
   style?: ViewStyle;
@@ -39,7 +39,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     case "large":
       sizeStyles = styles.avatarSizeLarge;
       break;
-    case "xLarge":
+    case "xlarge":
       sizeStyles = styles.avatarSizeXLarge;
       break;
   }

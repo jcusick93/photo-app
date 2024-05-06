@@ -59,7 +59,9 @@ const ImageIcon = ({ focused }) => (
       height: 24,
       borderRadius: 99,
       borderWidth: 1,
-      borderColor: focused ? "white" : "transparent",
+      borderColor: focused
+        ? tokens.themeColorOutlineNeutralHigh
+        : "transparent",
     }}
   />
 );
