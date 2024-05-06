@@ -1,9 +1,7 @@
 import * as React from "react";
-import { View, ViewProps, Pressable, TouchableOpacity } from "react-native";
+import { View, ViewProps, Pressable } from "react-native";
 import { Avatar } from "../../Avatar";
-
 import { Text } from "../../Text";
-
 import { Carousel, CarouselProps } from "../../Carousel/Carousel";
 import { styles } from "./LandingCardStyles";
 
@@ -23,12 +21,11 @@ export const LandingCard: React.FC<LandingCardProps> = ({
   avatarSrc,
   carouselProps,
   onPress,
-  ...props
 }) => {
   return (
     <View>
       <Carousel {...carouselProps} onPress={onPress} />
-      <TouchableOpacity style={styles.landingCardFooter} onPress={onPress}>
+      <Pressable style={styles.landingCardFooter} onPress={onPress}>
         <Avatar size="medium" src={avatarSrc} />
         <View style={styles.footerTextStack}>
           <Text size="medium" color="neutralHigh">
@@ -38,7 +35,7 @@ export const LandingCard: React.FC<LandingCardProps> = ({
             {subtitle}
           </Text>
         </View>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 };

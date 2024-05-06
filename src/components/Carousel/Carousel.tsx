@@ -6,6 +6,7 @@ import {
   Animated,
   Easing,
   Pressable,
+  TouchableOpacity,
 } from "react-native";
 import { tokens, globalStyles } from "../../styles";
 import { styles } from "./CarouselStyles";
