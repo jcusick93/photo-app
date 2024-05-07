@@ -102,7 +102,7 @@ export const PhotographerProfileScreen = () => {
               gap: 4,
             }}
           >
-            <Text color="neutralHigh" size="small" weight={500}>
+            <Text color="neutralHigh" size="small" weight="regular">
               {photographerName}
             </Text>
             {verified && (
@@ -226,7 +226,11 @@ export const PhotographerProfileScreen = () => {
                 alignItems: "center",
               }}
             >
-              <Text size="large" weight={500} style={{ textAlign: "center" }}>
+              <Text
+                size="large"
+                weight="regular"
+                style={{ textAlign: "center" }}
+              >
                 {photographerName}
               </Text>
               {verified && (

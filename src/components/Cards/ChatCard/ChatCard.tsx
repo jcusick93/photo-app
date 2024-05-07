@@ -53,7 +53,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({
         <Avatar src={avatarSrc} size="large" />
         <View style={{ flex: 1, width: "100%", flexGrow: 1 }}>
           <Text
-            weight={400}
+            weight="regular"
             color="neutralHigh"
             size="medium"
             style={{ width: "100%" }}

@@ -56,8 +56,8 @@ export const Button: React.FC<ButtonProps> = ({
 
       <Text
         style={{ textAlign: "center" }}
+        weight="semibold"
         size="small"
-        weight={500}
         color={
           color === "primary" && variant === "filled"
             ? "onPrimary"

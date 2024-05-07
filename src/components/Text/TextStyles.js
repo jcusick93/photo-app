@@ -38,13 +38,11 @@ export const styles = StyleSheet.create({
   },
 
   // weight styles
-  textWeight400: {
+  textWeightRegular: {
     fontWeight: 400,
   },
-  textWeight500: {
-    fontWeight: 500,
-  },
-  textWeight700: {
-    fontWeight: 700,
+
+  textWeightSemibold: {
+    fontWeight: 600,
   },
 });

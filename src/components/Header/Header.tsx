@@ -36,7 +36,7 @@ export const Header: React.FC<HeaderProps> = ({
           {(title || subtitle) && (
             <View>
               {typeof title === "string" ? (
-                <Text size="medium" color="neutralHigh" weight={500}>
+                <Text size="medium" color="neutralHigh" weight="regular">
                   {title}
                 </Text>
               ) : (

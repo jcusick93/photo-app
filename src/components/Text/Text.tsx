@@ -13,14 +13,14 @@ export interface TextProps extends NativeTextProps {
     | "neutralLow"
     | "primary"
     | "onPrimary";
-  weight?: 400 | 500 | 700;
+  weight?: "regular" | "semibold";
   size?: "xsmall" | "small" | "medium" | "large";
   style?: TextStyle;
 }
 
 export const Text: React.FC<TextProps> = ({
   color = "neutralHigh",
-  weight = 400,
+  weight = "regular",
   children,
   size = "medium",
   style,
@@ -64,14 +64,11 @@ export const Text: React.FC<TextProps> = ({
   }
 
   switch (weight) {
-    case 400:
-      weightStyle = styles.textWeight400;
+    case "regular":
+      weightStyle = styles.textWeightRegular;
       break;
-    case 500:
-      weightStyle = styles.textWeight500;
-      break;
-    case 700:
-      weightStyle = styles.textWeight700;
+    case "semibold":
+      weightStyle = styles.textWeightSemibold;
       break;
   }
 
