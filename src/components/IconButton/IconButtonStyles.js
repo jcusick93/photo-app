@@ -2,44 +2,25 @@ import { StyleSheet } from "react-native";
 import { tokens, globalStyles } from "../../styles";
 
 export const styles = StyleSheet.create({
+  // base styles to always be applied
   iconButtonBase: {
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: globalStyles.borderRadiusFull,
   },
-  // color styles
-  iconButtonColorPrimaryVariantFilled: {
+  // styles to be applied if variant === "filled"
+  iconButtonVariantFilled: {
+    borderRadius: globalStyles.borderRadiusFull,
+  },
+
+  // styles to be applied if color === "primary" && variant === "filled"
+  iconButtonColorPrimary: {
     backgroundColor: tokens.themeColorBackgroundPrimary,
   },
 
-  iconButtonColorPrimaryVariantFab: {
-    backgroundColor: tokens.themeColorBackgroundPrimary,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-  },
-
-  iconButtonColorSecondaryVariantFilled: {
+  // styles to be applied if color === "secondary" && variant === "filled"
+  iconButtonColorSecondary: {
     backgroundColor: tokens.themeColorBackgroundSecondary,
-  },
-
-  iconButtonColorSecondaryVariantFab: {
-    backgroundColor: tokens.themeColorBackgroundSecondary,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-  },
-
-  iconButtonColorNeutralVariantFilled: {
-    backgroundColor: tokens.themeColorBackgroundBaseline,
-  },
-  iconButtonColorNeutralVariantFab: {
-    backgroundColor: tokens.themeColorBackgroundBaseline,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
   },
 
   // size styles
@@ -61,13 +42,5 @@ export const styles = StyleSheet.create({
   iconButtonSizeXLarge: {
     height: 44,
     width: 44,
-  },
-
-  // shape styles
-  iconButtonShapeRounded: {
-    borderRadius: globalStyles.borderRadiusSmall,
-  },
-  iconButtonShapeCircular: {
-    borderRadius: globalStyles.borderRadiusFull,
   },
 });

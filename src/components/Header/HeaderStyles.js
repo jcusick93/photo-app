@@ -3,13 +3,12 @@ import { tokens, globalStyles } from "../../styles";
 
 export const styles = StyleSheet.create({
   headerBase: {
-    gap: 8,
+    position: "relative",
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
     paddingLeft: globalStyles.appMarginHorizontal,
     paddingRight: globalStyles.appMarginHorizontal,
-    paddingTop: globalStyles.space300,
+    paddingTop: globalStyles.space400,
     gap: globalStyles.space300,
     paddingBottom: globalStyles.space400,
   },

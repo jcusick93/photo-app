@@ -4,6 +4,7 @@ import { Avatar } from "../../Avatar";
 import { Text } from "../../Text";
 import { tokens } from "../../../styles";
 import { styles } from "./ChatCardStyles";
+import { SealCheckFilled16 } from "../../Icons";
 
 export interface ChatCardProps {
   avatarSrc?: string;
@@ -13,6 +14,7 @@ export interface ChatCardProps {
   unread?: boolean;
   to?: any;
   onPress?: any;
+  verified?: boolean;
 }
 
 export const ChatCard: React.FC<ChatCardProps> = ({
@@ -22,6 +24,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({
   time,
   to,
   onPress,
+  verified = false,
   unread = false,
 }) => {
   const [pressed, setPressed] = React.useState(false);
@@ -52,15 +55,22 @@ export const ChatCard: React.FC<ChatCardProps> = ({
       >
         <Avatar src={avatarSrc} size="large" />
         <View style={{ flex: 1, width: "100%", flexGrow: 1 }}>
+          {/* text-icon-stack */}
+          <View style={verified && styles.chatCardTextIconStack}>
+            <Text
+              weight="regular"
+              color="neutralHigh"
+              size="medium"
+              numberOfLines={1}
+            >
+              {title}
+            </Text>
+            {verified && (
+              <SealCheckFilled16 color={tokens.themeColorForegroundPrimary} />
+            )}
+          </View>
           <Text
             weight="regular"
-            color="neutralHigh"
-            size="medium"
-            style={{ width: "100%" }}
-          >
-            {title}
-          </Text>
-          <Text
             color={unread ? "neutralHigh" : "neutralLow"}
             size="small"
             numberOfLines={1}
@@ -68,7 +78,7 @@ export const ChatCard: React.FC<ChatCardProps> = ({
           >
             {subtitle}
           </Text>
-          <Text size="small" color="neutralLow">
+          <Text size="xsmall" color="neutralLow" numberOfLines={1}>
             {time}
           </Text>
         </View>

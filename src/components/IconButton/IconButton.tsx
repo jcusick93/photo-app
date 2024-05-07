@@ -3,48 +3,47 @@ import { TouchableOpacityProps, TouchableOpacity } from "react-native";
 import { styles } from "./IconButtonStyles";
 
 export interface IconButtonProps extends TouchableOpacityProps {
-  variant?: "filled" | "transparent" | "fab";
-  color?: "primary" | "secondary" | "neutral";
-  size?: "small" | "medium" | "large" | "xLarge";
-  shape?: "rounded" | "circular";
+  variant?: "filled" | "transparent";
+  color?: "primary" | "secondary";
+  size?: "small" | "medium" | "large" | "xlarge";
 }
 
 export const IconButton: React.FC<IconButtonProps> = ({
   variant = "filled",
   children,
   size = "medium",
-  shape = "rounded",
   color = "secondary",
   style,
   ...props
 }) => {
   let colorStyles = {};
-  let sizeStyles = {};
-  let shapeStyles = {};
+  let variantStyles = {};
 
-  // color styles
-  switch (`${color}-${variant}`) {
-    case "primary-filled":
-      colorStyles = styles.iconButtonColorPrimaryVariantFilled;
+  switch (variant) {
+    case "filled":
+      variantStyles = styles.iconButtonVariantFilled;
       break;
-    case "primary-fab":
-      colorStyles = styles.iconButtonColorPrimaryVariantFab;
+  }
+
+  switch (color) {
+    case "primary":
+      switch (variant) {
+        case "filled":
+          colorStyles = styles.iconButtonColorPrimary;
+          break;
+      }
       break;
-    case "secondary-filled":
-      colorStyles = styles.iconButtonColorSecondaryVariantFilled;
-      break;
-    case "secondary-fab":
-      colorStyles = styles.iconButtonColorSecondaryVariantFab;
-      break;
-    case "neutral-filled":
-      colorStyles = styles.iconButtonColorNeutralVariantFilled;
-      break;
-    case "neutral-fab":
-      colorStyles = styles.iconButtonColorNeutralVariantFab;
+    case "secondary":
+      switch (variant) {
+        case "filled":
+          colorStyles = styles.iconButtonColorSecondary;
+          break;
+      }
       break;
   }
 
   // size styles
+  let sizeStyles = {};
   switch (size) {
     case "small":
       sizeStyles = styles.iconButtonSizeSmall;
@@ -55,30 +54,15 @@ export const IconButton: React.FC<IconButtonProps> = ({
     case "large":
       sizeStyles = styles.iconButtonSizeLarge;
       break;
-    case "xLarge":
+    case "xlarge":
       sizeStyles = styles.iconButtonSizeXLarge;
       break;
   }
 
-  // shape styles
-  switch (shape) {
-    case "rounded":
-      shapeStyles = styles.iconButtonShapeRounded;
-      break;
-    case "circular":
-      shapeStyles = styles.iconButtonShapeCircular;
-      break;
-  }
   return (
     <TouchableOpacity
       {...props}
-      style={[
-        styles.iconButtonBase,
-        colorStyles,
-        sizeStyles,
-        shapeStyles,
-        style,
-      ]}
+      style={[styles.iconButtonBase, colorStyles, sizeStyles, style]}
     >
       {children}
     </TouchableOpacity>

@@ -29,8 +29,7 @@ export const InboxScreen = () => {
     >
       {/* Header */}
       <Header>
-        <View style={{ backgroundColor: "red", height: 44, flex: 1 }}></View>
-        {/* <TextField
+        <TextField
           onChangeText={setSearchValue}
           value={searchValue}
           placeholder="Search messages"
@@ -51,7 +50,7 @@ export const InboxScreen = () => {
               </IconButton>
             )
           }
-        /> */}
+        />
       </Header>
 
       {/* Chat list */}
@@ -59,6 +58,7 @@ export const InboxScreen = () => {
         <View>
           {ChatData.map((item, index) => (
             <ChatCard
+              verified={item.sender.verified}
               key={index}
               title={item.sender.name}
               avatarSrc={{ uri: item.sender.uri }}

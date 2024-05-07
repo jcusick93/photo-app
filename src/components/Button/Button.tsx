@@ -4,7 +4,7 @@ import { Text } from "../Text";
 import { styles } from "./ButtonStyles";
 
 export interface ButtonProps extends TouchableOpacityProps {
-  variant?: "filled" | "text";
+  variant?: "filled" | "transparent";
   color?: "primary" | "secondary";
   before?: React.ReactNode;
   after?: React.ReactNode;
@@ -21,36 +21,38 @@ export const Button: React.FC<ButtonProps> = ({
   fullWidth,
   ...props
 }) => {
-  let colorVariantStyles = {};
+  let variantStyles = {};
+  switch (variant) {
+    case "filled":
+      variantStyles = styles.buttonVariantFilled;
+      break;
+  }
+  let colorStyles = {};
   switch (color) {
     case "primary":
       switch (variant) {
         case "filled":
-          colorVariantStyles = styles.buttonColorPrimaryVariantFilled;
-          break; // Don't forget to add break statement here
-        default:
-          // Handle other primary variants if needed
-          break;
-      }
-      break; // Don't forget to add break statement here
-    case "secondary":
-      switch (variant) {
-        case "filled":
-          colorVariantStyles = styles.buttonColorSecondaryVariantFilled;
-          break; // Don't forget to add break statement here
-        default:
-          // Handle other secondary variants if needed
+          colorStyles = styles.buttonColorPrimary;
           break;
       }
       break;
-    default:
-      // Handle other colors if needed
+    case "secondary":
+      switch (variant) {
+        case "filled":
+          colorStyles = styles.buttonColorSecondary;
+          break;
+      }
       break;
   }
   return (
     <TouchableOpacity
       {...props}
-      style={[styles.buttonBase, colorVariantStyles, fullWidth && { flex: 1 }]}
+      style={[
+        styles.buttonBase,
+        colorStyles,
+        variantStyles,
+        fullWidth && { flex: 1 },
+      ]}
     >
       {before && <View>{before}</View>}
 
@@ -61,7 +63,7 @@ export const Button: React.FC<ButtonProps> = ({
         color={
           color === "primary" && variant === "filled"
             ? "onPrimary"
-            : color === "primary" && variant === "text"
+            : color === "primary" && variant === "transparent"
             ? "primary"
             : "neutralHigh"
         }

@@ -13,6 +13,11 @@ export const styles = StyleSheet.create({
     gap: globalStyles.space300,
     alignItems: "center",
   },
+  chatCardTextIconStack: {
+    flexDirection: "row",
+    gap: globalStyles.space200,
+    alignItems: "center",
+  },
   chatCardDot: {
     height: 8,
     width: 8,

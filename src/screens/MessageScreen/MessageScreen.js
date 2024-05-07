@@ -118,8 +118,8 @@ export const MessageScreen = () => {
           <View>
             <IconButton
               color={inputValue.length > 0 ? "primary" : "secondary"}
-              size="xLarge"
               shape="circular"
+              size="xlarge"
             >
               {inputValue.length > 0 ? (
                 <PaperPlaneTiltFilled24
