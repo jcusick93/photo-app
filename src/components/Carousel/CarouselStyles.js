@@ -3,8 +3,8 @@ import { tokens, globalStyles } from "../../styles";
 
 export const styles = StyleSheet.create({
   carouselBase: {
-    paddingLeft: globalStyles.appMarginHorizontal,
-    paddingRight: globalStyles.appMarginHorizontal,
+    paddingLeft: globalStyles.appMarginVertical,
+    paddingRight: globalStyles.appMarginVertical,
   },
   carouselImageContainer: {
     height: 360,

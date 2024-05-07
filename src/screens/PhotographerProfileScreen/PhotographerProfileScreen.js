@@ -146,8 +146,8 @@ export const PhotographerProfileScreen = () => {
         <View
           style={{
             width: "100%",
-            paddingLeft: globalStyles.appMarginHorizontal,
-            paddingRight: globalStyles.appMarginHorizontal,
+            paddingLeft: globalStyles.appMarginVertical,
+            paddingRight: globalStyles.appMarginVertical,
             paddingTop: globalStyles.appContainerMarginTop,
           }}
         >

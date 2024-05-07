@@ -10,6 +10,7 @@ export interface ChatBubbleProps {
   variant: "to" | "from";
   time?: string;
   avatarSrc?: any;
+  onAvatarPress?: () => void;
 }
 
 export const ChatBubble: React.FC<ChatBubbleProps> = ({
@@ -17,6 +18,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
   variant = "to",
   time,
   avatarSrc,
+  onAvatarPress,
 }) => {
   return (
     <View
@@ -26,7 +28,9 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
     >
       <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 8 }}>
         {/* If from is true, show an avatar */}
-        {variant == "from" && <Avatar size="small" src={avatarSrc} />}
+        {variant == "from" && (
+          <Avatar size="small" src={avatarSrc} onPress={onAvatarPress} />
+        )}
         <View
           style={[
             styles.chatBubbleBase,

@@ -20,7 +20,7 @@ export const globalStyles = {
   typographyLineHeightDefault: 1.2,
 
   // layout styles
-  appMarginHorizontal: 16,
+  appMarginVertical: 16,
   appContainerMarginTop: 8,
   appContainerMarginBottom: 16,
 };

@@ -4,8 +4,8 @@ import { tokens, globalStyles } from "../../../styles";
 export const styles = StyleSheet.create({
   landingCardBase: {},
   landingCardFooter: {
-    paddingLeft: globalStyles.appMarginHorizontal,
-    paddingRight: globalStyles.appMarginHorizontal,
+    paddingLeft: globalStyles.appMarginVertical,
+    paddingRight: globalStyles.appMarginVertical,
     flexDirection: "row",
     alignItems: "center",
     gap: globalStyles.space300,

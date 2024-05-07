@@ -23,7 +23,7 @@ export const Carousel: React.FC<CarouselProps> = ({ items, onPress }) => {
   const scrollX = React.useRef(new Animated.Value(0)).current;
   const spacing = 16;
   const width =
-    Dimensions.get("window").width - globalStyles.appMarginHorizontal * 2;
+    Dimensions.get("window").width - globalStyles.appMarginVertical * 2;
   const scaleAnim = React.useRef(new Animated.Value(1)).current;
 
   const handlePressIn = () => {

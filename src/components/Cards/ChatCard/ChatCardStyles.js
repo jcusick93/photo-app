@@ -4,8 +4,8 @@ import { globalStyles, tokens } from "../../../styles";
 export const styles = StyleSheet.create({
   chatCardBase: {
     paddingTop: globalStyles.space300,
-    paddingLeft: globalStyles.appMarginHorizontal,
-    paddingRight: globalStyles.appMarginHorizontal,
+    paddingLeft: globalStyles.appMarginVertical,
+    paddingRight: globalStyles.appMarginVertical,
     paddingBottom: globalStyles.space300,
     width: "100%",
     overflow: "hidden",

@@ -21,6 +21,7 @@ import { tokens } from "../../styles/tokens";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { ScreenNames } from "../../constants/ScreenNames";
 import { ChatData } from "../../constants/ChatData";
+import { globalStyles } from "../../styles";
 
 export const MessageScreen = () => {
   const navigation = useNavigation();
@@ -46,6 +47,11 @@ export const MessageScreen = () => {
 
   const renderItem = ({ item }) => (
     <ChatBubble
+      onAvatarPress={() =>
+        navigation.navigate(ScreenNames.PhotographerProfile, {
+          conversation: chatData, // Pass the entire chatData object
+        })
+      }
       avatarSrc={{ uri: chatData?.sender.uri }}
       variant={item.variant}
       time={item.time}
@@ -102,8 +108,8 @@ export const MessageScreen = () => {
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           contentContainerStyle={{
-            padding: tokens.themeAppMargin,
-            gap: tokens.themeSpace500,
+            padding: globalStyles.appMarginVertical,
+            gap: globalStyles.space500,
           }}
         />
 
