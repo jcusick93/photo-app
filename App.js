@@ -12,6 +12,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { tokens } from "./src/styles/tokens";
 import * as Haptics from "expo-haptics";
+
 import {
   HomeScreen,
   InboxScreen,
@@ -26,7 +27,7 @@ import {
   ChatFilled24,
   ChatOutlined24,
 } from "./src/components/Icons";
-import { ChatBubble } from "./src/components/Chat/ChatBubble/ChatBubble";
+import { ChatBubble } from "./src/components/ChatBubble/ChatBubble";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ScreenNames } from "./src/constants/ScreenNames";

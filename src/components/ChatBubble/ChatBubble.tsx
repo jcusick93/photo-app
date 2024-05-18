@@ -1,8 +1,8 @@
 import * as React from "react";
 import { View } from "react-native";
-import { tokens } from "../../../styles";
-import { Text } from "../../Text";
-import { Avatar } from "../../Avatar";
+import { tokens } from "../../styles";
+import { Text } from "../Text";
+import { Avatar } from "../Avatar";
 import { styles } from "./ChatBubbleStyles";
 
 export interface ChatBubbleProps {
@@ -26,7 +26,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
         alignItems: variant === "to" ? "flex-end" : "flex-start",
       }}
     >
-      <View style={{ flexDirection: "row", alignItems: "flex-end", gap: 8 }}>
+      <View style={styles.chatBubbleContainer}>
         {/* If from is true, show an avatar */}
         {variant == "from" && (
           <Avatar size="small" src={avatarSrc} onPress={onAvatarPress} />

@@ -8,7 +8,6 @@ export const styles = StyleSheet.create({
   },
   textFieldInput: {
     width: "100%",
-
     backgroundColor: tokens.themeColorBackgroundSecondary,
     minHeight: 44,
     maxHeight: 120,
@@ -16,9 +15,11 @@ export const styles = StyleSheet.create({
     lineHeight: 16,
     paddingTop: globalStyles.space400,
     paddingBottom: globalStyles.space400,
-    borderRadius: globalStyles.borderRadiusXLarge,
     color: tokens.themeColorForegroundNeutralHigh,
+    borderRadius: globalStyles.borderRadiusMedium,
   },
+
+  // slots
   textFieldInputSlot: {
     justifyContent: "center",
     alignItems: "center",

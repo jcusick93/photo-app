@@ -99,7 +99,7 @@ export const PhotographerProfileScreen = () => {
               flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
-              gap: 4,
+              gap: globalStyles.space200,
             }}
           >
             <Text color="neutralHigh" size="small" weight="regular">
@@ -110,7 +110,9 @@ export const PhotographerProfileScreen = () => {
             )}
           </Animated.View>
         }
-        after={<View style={{ height: 24, width: 24 }} />}
+        after={
+          <View style={{ height: 24, width: 24, backgroundColor: "red" }} />
+        }
         before={
           <IconButton
             size="small"
@@ -213,14 +215,15 @@ export const PhotographerProfileScreen = () => {
           {/* text stack */}
           <View
             style={{
-              marginTop: 72 / 2 + 4,
+              backgroundColor: "red",
+              marginTop: 72 / 2 + globalStyles.space200,
               justifyContent: "center",
               alignItems: "center",
             }}
           >
             <View
               style={{
-                gap: 4,
+                gap: globalStyles.space200,
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center",

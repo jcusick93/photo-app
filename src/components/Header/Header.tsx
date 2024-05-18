@@ -55,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({
       ) : null}
 
       {after && <View style={styles.headerAfterSlot}>{after}</View>}
-      {children}
+      {children && children}
     </View>
   );
 };

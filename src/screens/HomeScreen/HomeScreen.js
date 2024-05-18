@@ -12,12 +12,10 @@ import {
   TextField,
   MagnifyingGlassOutlined24,
   SlidersHorizontalOutlined24,
+  Button,
   Header,
   LandingCard,
   XCircleFilled24,
-  Text,
-  Avatar,
-  Carousel,
 } from "../../components";
 import { useNavigation } from "@react-navigation/core";
 import { ScreenNames } from "../../constants/ScreenNames";
@@ -40,6 +38,7 @@ export const HomeScreen = () => {
     >
       <Header>
         <TextField
+          shape="circular"
           onChangeText={setSearchValue}
           value={searchValue}
           placeholder="Search photographers"
@@ -53,7 +52,6 @@ export const HomeScreen = () => {
               <IconButton
                 color="neutral"
                 size="medium"
-                shape="circular"
                 variant="transparent"
                 onPress={() => setSearchValue("")}
               >
@@ -64,17 +62,12 @@ export const HomeScreen = () => {
             ) : null
           }
         />
-
-        <IconButton
-          color="secondary"
-          size="xlarge"
-          shape="circular"
+        <Button
+          variant="transparent"
           onPress={() => navigation.navigate(ScreenNames.HomeSettingsModal)}
         >
-          <SlidersHorizontalOutlined24
-            color={tokens.themeColorForegroundNeutralHigh}
-          />
-        </IconButton>
+          Filter
+        </Button>
       </Header>
 
       <ScrollView
@@ -82,7 +75,7 @@ export const HomeScreen = () => {
         contentContainerStyle={{
           paddingTop: globalStyles.appContainerMarginTop,
           paddingBottom: globalStyles.appContainerMarginBottom,
-          gap: 24,
+          gap: globalStyles.space700,
         }}
         style={{
           display: "flex",

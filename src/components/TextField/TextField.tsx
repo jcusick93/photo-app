@@ -4,17 +4,16 @@ import { tokens, globalStyles } from "../../styles";
 import { styles } from "./TextFieldStyles";
 
 export interface TextFieldProps extends TextInputProps {
-  shape?: "rounded" | "circular";
   before?: React.ReactNode;
   after?: React.ReactNode;
 }
 
 export const TextField: React.FC<TextFieldProps> = ({
-  shape,
   before,
   after,
   ...props
 }) => {
+  const slotSize = 44;
   return (
     <View style={styles.textFieldBase}>
       <TextInput
@@ -23,7 +22,13 @@ export const TextField: React.FC<TextFieldProps> = ({
         placeholderTextColor={tokens.themeColorForegroundNeutralMedium}
         style={[
           styles.textFieldInput,
-          { paddingLeft: before ? 44 : 20, paddingRight: after ? 56 : 20 },
+
+          {
+            paddingLeft: before ? 44 : globalStyles.space400,
+            paddingRight: after
+              ? slotSize + globalStyles.space300
+              : globalStyles.space400,
+          },
         ]}
       />
       {/* before slot if before is true */}

@@ -2,7 +2,7 @@ export * from "./Cards";
 export * from "./Avatar";
 export * from "./Text";
 export * from "./Icons";
-export * from "./Chat";
+export * from "./ChatBubble";
 export * from "./IconButton";
 export * from "./TextField";
 export * from "./Header";
